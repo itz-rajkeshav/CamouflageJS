@@ -13,7 +13,7 @@ const Page = () => {
     setTimeout(() => setCopied(false), 2000);
   };
   const handleConvertcode = async () => {
-    const url = "http://localhost:4000/api/obfuscateCode";
+    const url = "https://camouflagejs-server.onrender.com/api/obfuscateCode";
     try {
       const response = await fetch(url, {
         method: 'POST',
