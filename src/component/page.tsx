@@ -12,6 +12,22 @@ const Page = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+  const handleConvertcode = async () => {
+    const url = "http://localhost:4000/api/obfuscateCode";
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code: inputCode }),
+      });
+      const data = await response.json(); 
+      setOutputCode(data.resultCode); 
+    } catch (error) {
+      console.error("Error during obfuscation:", error);
+    }
+  };
   return (
     <div className="relative flex flex-col bg-customBgcolor w-full h-screen items-center justify-between overflow-hidden p-6">
       <div className="absolute top-0 w-full text-center pt-4">
@@ -82,7 +98,7 @@ const Page = () => {
       <div className="relative z-10 mb-8">
         <button
           className="relative text-gray-300 text-xl bg-black px-8 py-4 rounded-lg flex items-center group overflow-hidden"
-          // onClick={handleConvertcode}}
+          onClick={handleConvertcode}
         >
           <span className="absolute inset-0 bg-blue-950 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
           <span className="relative z-10  group-hover:text-white transition-colors duration-300">
