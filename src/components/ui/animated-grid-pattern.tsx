@@ -1,17 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+//for ts  
+interface Square{
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+}
+interface AnimatedGridPattern{
+  numSquares?: number;
+  maxOpacity?: number;
+  duration?: number;
+  className?: string;
 
-const AnimatedGridPattern = ({ 
+}
+const AnimatedGridPattern:React.FC<AnimatedGridPattern> = ({ 
   numSquares = 20,
   maxOpacity = 0.1,
   duration = 3,
-  repeatDelay = 1,
-  className = ""
+  className = "",
 }) => {
-  const [squares, setSquares] = useState([]);
+  const [squares, setSquares] = useState<Square[]>([]);
 
   useEffect(() => {
-    // Create initial squares
-    const newSquares = Array.from({ length: numSquares }, (_, i) => ({
+    const newSquares:Square[] =Array.from({ length: numSquares }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,

@@ -34,20 +34,18 @@ const Page = () => {
         <h1 className="text-3xl font-bold font-mono text-gray-400">CamouflageJS</h1>
       </div>
       <AnimatedGridPattern
-        numSquares={500}
+        numSquares={700}
         maxOpacity={0.2}
         duration={6}
-        repeatDelay={1}
         className={cn(
           "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
           "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
         )}
       />
       <AnimatedGridPattern
-        numSquares={4}
-        maxOpacity={0.05}
+        numSquares={9}
+        maxOpacity={0.5}
         duration={4}
-        repeatDelay={2}
         className={cn(
           "[mask-image:radial-gradient(600px_circle_at_center,gray,transparent)]",
           "inset-x-0 inset-y-[-40%] h-[200%] skew-y-6 opacity-50"
